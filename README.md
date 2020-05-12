@@ -33,22 +33,31 @@ If you have trained your model locally, you should use the `--checkpoint` flag t
 ## VGG Baseline
 
 Evaluate single image 
+
 `
-python tester.py --checkpoint "src/ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --single ../eval_imgs/has_136_heads.jpg
+python tester.py --checkpoint "ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --single ../eval_imgs/has_136_heads.jpg
+`
+
+Save to output
+`
+python tester.py --checkpoint "ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --single ../eval_imgs/has_136_heads.jpg --save True
 `
 
 Evaluate the single image and save the output image. The output image overlays the density map over the input image.
 
-`python tester.py --checkpoint "src/ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --imagepath "../eval_imgs/*.jpg" --save True`
+`python tester.py --checkpoint "ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --imagepath "../eval_imgs/*.jpg" --save True`
 
 Evaluate the directory full of images
 
-`python tester.py --checkpoint "src/ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --imagepath "../eval_imgs/*.jpg" --save True`
+`python tester.py --checkpoint "ckpt/vgg16baseline_448_400ep_private-1e-05-0.052820200430.pt" --imagepath "../eval_imgs/*.jpg" --save True`
 
 ## VGG Decoder (448)
 
 Similarly you can use vggdecoder model to evaluate the images.
+`
+python tester.py --model vggdecoder --checkpoint "ckpt/vgg16decoder_448_400ep_private-1e-05-0.050320200501.pt" --single "../eval_imgs/has_136_heads.jpg" --save True
+`
 
 `
-python tester.py --model vggdecoder --checkpoint "src/ckpt/vgg16decoder_448_400ep_private-1e-05-0.050320200501.pt" --single "/mnt/bigdrive/images/crowd-density.jpg" --save True
+python tester.py --model vggdecoder --checkpoint "ckpt/vgg16decoder_448_400ep_private-1e-05-0.050320200501.pt" --single "/mnt/bigdrive/images/crowd-density.jpg" --save True
 `
