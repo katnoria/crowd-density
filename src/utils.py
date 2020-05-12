@@ -81,3 +81,15 @@ def overlay_image_and_mask(img_fname, pred, count, figsize=(8, 8), use_img_size=
     plt.axis('off')
     plt.title(f"People count: {count}")
     return plt
+
+
+def error(true_labels, pred_labels):
+    return np.array(true_labels) - np.array(pred_labels)
+
+
+def mean_squared_error(true_labels, pred_labels):
+    return np.around(np.mean(error(true_labels, pred_labels)**2))
+
+
+def mean_absolute_error(true_labels, pred_labels):
+    return np.around(np.mean(np.abs(error(true_labels, pred_labels))))
